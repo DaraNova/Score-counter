@@ -1,0 +1,75 @@
+from kivy.app import App
+from kivy.uix.button import Button
+from kivy.uix.image import Image
+from kivy.uix.textinput import TextInput
+from kivy.uix.floatlayout import FloatLayout
+from kivymd.app import MDApp
+from kivymd.uix.label import MDLabel
+
+class Container(FloatLayout):
+    pass
+
+class MapApp(MDApp):
+    def build(self):
+        return Container()
+
+
+
+
+if __name__ == "__main__":
+    MapApp().run()
+    
+    
+    #Kivy file
+    
+    <Container>:
+    Image:
+        source: 'X9.png'
+    MDRoundFlatButton:
+        text: "Media"
+        font_size: 35
+        size_hint: 0.15,0.2
+        pos: 540, 350
+        theme_text_color: 'Custom'
+        text_color: 15/225, 13/225, 121/225
+        font_name: 'Outfit-Medium.ttf'
+    MDRoundFlatButton:
+        text: "StratCom"
+        font_size: 35
+        size_hint: 0.15,0.2
+        pos: 540, 650
+        theme_text_color: 'Custom'
+        text_color: 15/225, 13/225, 121/225
+        font_name: 'Outfit-Medium.ttf'
+    MDRoundFlatButton:
+        text: "Finance"
+        font_size: 35
+        size_hint: 0.15,0.2
+        pos: 540, 50
+        theme_text_color: 'Custom'
+        text_color: 15/225, 13/225, 121/225
+        font_name: 'Outfit-Medium.ttf'
+    MDRoundFlatButton:
+        text: "B&M in a GC"
+        font_size: 35
+        size_hint: 0.15,0.2
+        pos: 810, 50
+        theme_text_color: 'Custom'
+        text_color: 15/225, 13/225, 121/225
+        font_name: 'Outfit-Medium.ttf'
+    MDRoundFlatButton:
+        text: "Intro to IR"
+        font_size: 35
+        size_hint: 0.15,0.2
+        pos: 810, 350
+        theme_text_color: 'Custom'
+        text_color: 15/225, 13/225, 121/225
+        font_name: 'Outfit-Medium.ttf'
+    MDRoundFlatButton:
+        text: "Python"
+        font_size: 35
+        size_hint: 0.15,0.2
+        pos: 810, 650
+        theme_text_color: 'Custom'
+        text_color: 15/225, 13/225, 121/225
+        font_name: 'Outfit-Medium.ttf'
