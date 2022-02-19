@@ -1,20 +1,17 @@
-from kivy.app import App
-from kivy.uix.button import Button
-from kivy.uix.image import Image
-from kivy.uix.textinput import TextInput
 from kivy.uix.floatlayout import FloatLayout
 from kivymd.app import MDApp
-from kivymd.uix.label import MDLabel
+from kivy.lang import Builder
+from kivy.uix.screenmanager import ScreenManager, Screen
 
 class Container(FloatLayout):
-    pass
+    def __init__(self, **kwargs):
+        super(Container, self).__init__(**kwargs)
 
 class MapApp(MDApp):
+    def __init__(self, **kwargs):
+        super(MapApp, self).__init__(**kwargs)
     def build(self):
         return Container()
-
-
-
 
 if __name__ == "__main__":
     MapApp().run()
@@ -22,54 +19,41 @@ if __name__ == "__main__":
     
     #Kivy file
     
-    <Container>:
-    Image:
-        source: 'X9.png'
-    MDRoundFlatButton:
-        text: "Media"
-        font_size: 35
-        size_hint: 0.15,0.2
-        pos: 540, 350
-        theme_text_color: 'Custom'
-        text_color: 15/225, 13/225, 121/225
-        font_name: 'Outfit-Medium.ttf'
-    MDRoundFlatButton:
-        text: "StratCom"
-        font_size: 35
-        size_hint: 0.15,0.2
-        pos: 540, 650
-        theme_text_color: 'Custom'
-        text_color: 15/225, 13/225, 121/225
-        font_name: 'Outfit-Medium.ttf'
-    MDRoundFlatButton:
-        text: "Finance"
-        font_size: 35
-        size_hint: 0.15,0.2
-        pos: 540, 50
-        theme_text_color: 'Custom'
-        text_color: 15/225, 13/225, 121/225
-        font_name: 'Outfit-Medium.ttf'
-    MDRoundFlatButton:
-        text: "B&M in a GC"
-        font_size: 35
-        size_hint: 0.15,0.2
-        pos: 810, 50
-        theme_text_color: 'Custom'
-        text_color: 15/225, 13/225, 121/225
-        font_name: 'Outfit-Medium.ttf'
-    MDRoundFlatButton:
-        text: "Intro to IR"
-        font_size: 35
-        size_hint: 0.15,0.2
-        pos: 810, 350
-        theme_text_color: 'Custom'
-        text_color: 15/225, 13/225, 121/225
-        font_name: 'Outfit-Medium.ttf'
-    MDRoundFlatButton:
-        text: "Python"
-        font_size: 35
-        size_hint: 0.15,0.2
-        pos: 810, 650
-        theme_text_color: 'Custom'
-        text_color: 15/225, 13/225, 121/225
-        font_name: 'Outfit-Medium.ttf'
+   <Container>:
+    ScreenManager:
+        id: kivy_manager
+        MenuScreen:
+            name: 'menu'
+        IRScreen:
+            name: 'ir'
+
+<MenuScreen@Screen>:
+    FloatLayout:
+        Image:
+            source: 'SC_main.jpg'
+        MDRoundFlatButton:
+            pos: 550, 660
+            size_hint: 0.15, 0.28
+            opacity: 0.1
+            on_press: root.manager.current = 'ir'
+        MDRoundFlatButton:
+            pos: 550, 395
+            size_hint: 0.15, 0.18
+            opacity: 0.1
+        MDRoundFlatButton:
+            pos: 560, 84
+            size_hint: 0.3,0.18
+            opacity: 0.1
+        MDRoundFlatButton:
+            pos: 810, 340
+            size_hint: 0.15, 0.28
+            opacity: 0.1
+        MDRoundFlatButton:
+            pos: 810, 760
+            size_hint: 0.15, 0.18
+            opacity: 0.1
+
+<IRScreen@Screen>:
+    FloatLayout:
+        Image:
+            source: 'ScoreCounter_page-0001.jpg'
